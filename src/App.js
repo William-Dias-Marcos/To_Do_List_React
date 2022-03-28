@@ -1,34 +1,22 @@
 import React, { useState } from 'react' 
+import List from './Components/List'
+import Form from './Components/Form'
 import './App.css';
 
 function App() {
-  const [text, setText] = useState("");
+
     const [items, setItems] = useState([]);
 
-    function handleChange(event){
-        let t = event.target.value;
-        setText(t);
+    function onAddItem(item){
+        setItems([...items, item])
     }
 
-    function addItem(event){
-        event.preventDefault();
-        if (text){
-        setItems([...items, text]);
-        setText("");
-        }
-    }
 
     return(
         <div className='container'>
             <h1>Hello word</h1>
-            <form>
-                <input onChange={handleChange} type="text" value={text}></input>
-                <button onClick={addItem}>Add</button>
-            </form>
-
-            <ul>
-                {items.map(item=><li>{item}</li>)}
-            </ul>
+            <Form onAddItem={onAddItem}></Form>
+            <List items={items}></List>
         </div>
     )  
 }
