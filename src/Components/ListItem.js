@@ -11,7 +11,7 @@ function DoneImg(props){
 function ListItem (props){
 
     return(
-                <li key={props.item.id}>
+                <li>
                     <Card className={props.item.done ? "done item" : "item"} >
                         {props.item.text}
                         <div>

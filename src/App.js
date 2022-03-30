@@ -1,18 +1,33 @@
-import React, { useState } from 'react' 
+import React, { useEffect, useState } from 'react' 
 import List from './Components/List'
 import Form from './Components/Form'
 import Item from './Components/Item'
+import Modal from './Components/Modal'
 import './App.css';
+
+const Saved = "savedItems"
 
 function App() {
 
+    const [showModal, setShowModal] = useState(false)
     const [items, setItems] = useState([]);
+
+    useEffect(()=>{
+        let savedItems = JSON.parse(localStorage.getItem(Saved))
+        if(savedItems){
+            setItems(savedItems)
+        }
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem(Saved, JSON.stringify(items))
+    },[items])
 
     function onAddItem(text){ 
         let it = new Item(text)
         setItems([...items, it])
+        onHideModal();
     }
-
 
     function onItemDeleted(item){
 
@@ -31,12 +46,22 @@ function App() {
         })
         setItems(updareItems);
     }
+    
+    function onHideModal(event){
+       setShowModal(false)
+    }
 
     return(
         <div className='container'>
-            <h1>Hello word</h1>
-            <Form onAddItem={onAddItem}></Form>
+
+            <header className='header'>
+                <h1>Minhas Tarefas</h1>
+                <button onClick={()=>{setShowModal(true)}} className='addButtom'>+</button>
+            </header>
+
             <List onDone={onDone} onItemDeleted={onItemDeleted} items={items}></List>
+
+            <Modal show={showModal} onHideModal={onHideModal}><Form onAddItem={onAddItem}></Form></Modal>
         </div>
     )  
 }
