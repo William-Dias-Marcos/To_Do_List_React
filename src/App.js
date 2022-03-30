@@ -8,7 +8,7 @@ function App() {
 
     const [items, setItems] = useState([]);
 
-    function onAddItem(text){
+    function onAddItem(text){ 
         let it = new Item(text)
         setItems([...items, it])
     }
@@ -21,11 +21,22 @@ function App() {
         setItems(filteredItems)
     }
 
+    function onDone(item){
+
+        let updareItems = items.map(it => {
+            if (it.id === item.id){
+                it.done = !it.done;
+            }
+            return it;
+        })
+        setItems(updareItems);
+    }
+
     return(
         <div className='container'>
             <h1>Hello word</h1>
             <Form onAddItem={onAddItem}></Form>
-            <List onItemDeleted={onItemDeleted} items={items}></List>
+            <List onDone={onDone} onItemDeleted={onItemDeleted} items={items}></List>
         </div>
     )  
 }

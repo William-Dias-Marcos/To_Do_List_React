@@ -1,14 +1,13 @@
+import ListItem from './ListItem';
+
+
 function List (props){
 
     return(
         <ul>
-            {props.items.map(item=>
-                <li key={item.id}>
-                    {item.text}
-                    <button onClick={()=>{ props.onItemDeleted(item)}}><img alt="delete" src=""></img></button>
-                </li>)}
-        </ul>
-    )
+            {props.items.map(item=> <ListItem key={item.id} item={item} onDone={props.onDone} onItemDeleted={props.onItemDeleted}></ListItem>)}
+        </ul>)
+    
 }
 
 export default List;

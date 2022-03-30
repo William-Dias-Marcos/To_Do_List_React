@@ -19,9 +19,9 @@ function Form (props){
 
     return(
         <form>
-                <input onChange={handleChange} type="text" value={text}></input>
-                <button onClick={addItem}>Add</button>
-            </form>
+            <input onChange={handleChange} type="text" value={text}></input>
+            <button onClick={addItem}>Add</button>
+        </form>
     )
 }
 
