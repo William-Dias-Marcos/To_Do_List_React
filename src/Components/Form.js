@@ -1,4 +1,5 @@
 import React, { useState } from 'react' 
+import '../App.css'
 
 function Form (props){
 
@@ -19,8 +20,8 @@ function Form (props){
 
     return(
         <form>
-            <input onChange={handleChange} type="text" value={text}></input>
-            <button onClick={addItem}>Add</button>
+            <input className="textItem" onChange={handleChange} type="text" value={text}></input>
+            <button className="addItem" onClick={addItem}>Add</button>
         </form>
     )
 }

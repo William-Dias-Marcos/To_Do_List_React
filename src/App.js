@@ -55,7 +55,7 @@ function App() {
         <div className='container'>
 
             <header className='header'>
-                <h1>Minhas Tarefas</h1>
+                <h1>My Tasks</h1>
                 <button onClick={()=>{setShowModal(true)}} className='addButtom'>+</button>
             </header>
 
