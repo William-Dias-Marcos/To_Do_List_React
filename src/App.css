@@ -34,6 +34,7 @@ img{
 button{
   border: none;
   background-color: rgb(48, 52, 66);
+  cursor: pointer;
 }
 
 .card{
@@ -93,4 +94,34 @@ button{
   width: 300px;
   height: 40px;
   font-size: 20px;
+}
+
+.dellTasks{
+  float: right;
+  margin-top: 50px;
+}
+
+.dellImg{
+  height: 100px;
+}
+
+@media only screen and (max-width: 700px){
+
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+
+  .container {
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 360px){
+
+  .container {
+    max-width: 250px;
+  }
 }

@@ -32,19 +32,24 @@ function App() {
     function onItemDeleted(item){
 
         let filteredItems = items.filter(it => it.id !== item.id)
-
         setItems(filteredItems)
+    }
+
+    function onTaskDeleted(){
+
+        setItems([])
+        localStorage.removeItem(Saved)
     }
 
     function onDone(item){
 
-        let updareItems = items.map(it => {
+        let updatedItems = items.map(it => {
             if (it.id === item.id){
                 it.done = !it.done;
             }
             return it;
         })
-        setItems(updareItems);
+        setItems(updatedItems);
     }
     
     function onHideModal(event){
@@ -62,6 +67,8 @@ function App() {
             <List onDone={onDone} onItemDeleted={onItemDeleted} items={items}></List>
 
             <Modal show={showModal} onHideModal={onHideModal}><Form onAddItem={onAddItem}></Form></Modal>
+
+            <button onClick={onTaskDeleted} className='dellTasks'><img className="dellImg" alt='delete all' src="./assets/dellAll.svg"></img></button>
         </div>
     )  
 }
