@@ -60,8 +60,8 @@ button{
 }
 
 .modal{
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.342);
   position: fixed;
   top: 0;
@@ -117,11 +117,46 @@ button{
   .container {
     max-width: 350px;
   }
+  .cardModal{
+    padding: 10px;
+  }
+  .card{
+    width: 340px;
+  }
+  .item{
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  img{
+    height: 20px;
+  }
+  input{
+    max-width: 70%;
+  }
 }
 
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 400px){
 
   .container {
-    max-width: 250px;
+    max-width: 280px;
+  }
+  .card{
+    width: 280px;
+  }
+  .cardModal{
+    padding: 5px;
+  }
+}
+@media only screen and (max-width: 320px){
+
+  .container {
+    max-width: 270px;
+  }
+  .card{
+    width: 260px;
+  }
+  .cardModal{
+    padding: 4px;
   }
 }
