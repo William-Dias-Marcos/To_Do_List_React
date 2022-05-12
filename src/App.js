@@ -68,7 +68,7 @@ function App() {
 
             <Modal show={showModal} onHideModal={onHideModal}><Form onAddItem={onAddItem}></Form></Modal>
 
-            <button onClick={onTaskDeleted} className='dellTasks'><img className="dellImg" alt='delete all' src="./assets/dellAll.svg"></img></button>
+            <button onClick={onTaskDeleted} className='dellTasks'><img className="dellImg" alt='delete all' src="./assets/dellAll.png"></img></button>
         </div>
     )  
 }
